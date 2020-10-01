@@ -7,15 +7,55 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class TaskListViewController: UIViewController {
-    @IBOutlet weak var prioritySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var prioritySegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var tableView: UITableView!
+    
+    private var tasks = BehaviorRelay<[Task]>(value: [])
+    private var filteredTasks = [Task]()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navC = segue.destination as? UINavigationController,
+            let addTaskVC = navC.viewControllers.first as? AddTaskViewController else {
+                fatalError("Controller not found")
+        }
+        addTaskVC.taskSubjectObservable
+            .subscribe(onNext: { task in
+                let priority = Priority(rawValue: self.prioritySegmentedControl.selectedSegmentIndex - 1)
+                let tasks = self.tasks.value + [task]
+                self.tasks.accept(tasks)
+                self.filterTask(by: priority)
+            }).disposed(by: disposeBag)
+    }
+    
+    @IBAction private func priorityValueChanged(_ sender: UISegmentedControl) {
+        let priority = Priority(rawValue: sender.selectedSegmentIndex - 1)
+        filterTask(by: priority)
+    }
+    
+    private func filterTask(by priority: Priority?) {
+        guard let priority = priority else {
+            filteredTasks = tasks.value
+            return
+        }
+        tasks
+            .map { tasks in
+                return tasks.filter { $0.priority == priority }
+            }
+            .subscribe(onNext: { [unowned self] tasks in
+                self.filteredTasks = tasks
+                print(tasks)
+            }).disposed(by: disposeBag)
     }
 }
 
