@@ -9,15 +9,14 @@
 import UIKit
 
 final class TaskListViewController: UIViewController {
-
     @IBOutlet weak var prioritySegmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
-
 }
 
 extension TaskListViewController: UITableViewDataSource {
@@ -32,5 +31,4 @@ extension TaskListViewController: UITableViewDataSource {
 }
 
 extension TaskListViewController: UITableViewDelegate {
-    
 }

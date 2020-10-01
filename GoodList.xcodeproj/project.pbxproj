@@ -13,6 +13,7 @@
 		6791CF812525945D00BFC414 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6791CF7F2525945D00BFC414 /* Main.storyboard */; };
 		6791CF832525946000BFC414 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6791CF822525946000BFC414 /* Assets.xcassets */; };
 		6791CF862525946000BFC414 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6791CF842525946000BFC414 /* LaunchScreen.storyboard */; };
+		6791CF8F25259B6500BFC414 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6791CF8E25259B6500BFC414 /* AddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6791CF822525946000BFC414 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6791CF852525946000BFC414 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6791CF872525946000BFC414 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6791CF8E25259B6500BFC414 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +58,10 @@
 		6791CF782525945D00BFC414 /* GoodList */ = {
 			isa = PBXGroup;
 			children = (
-				6791CF792525945D00BFC414 /* AppDelegate.swift */,
-				6791CF7B2525945D00BFC414 /* SceneDelegate.swift */,
+				6791CF9025259C8900BFC414 /* Application */,
 				6791CF8D252594B300BFC414 /* Controllers */,
-				6791CF7F2525945D00BFC414 /* Main.storyboard */,
-				6791CF822525946000BFC414 /* Assets.xcassets */,
-				6791CF842525946000BFC414 /* LaunchScreen.storyboard */,
-				6791CF872525946000BFC414 /* Info.plist */,
+				6791CF9225259D5200BFC414 /* Views */,
+				6791CF9125259CD200BFC414 /* Supporting files */,
 			);
 			path = GoodList;
 			sourceTree = "<group>";
@@ -71,8 +70,36 @@
 			isa = PBXGroup;
 			children = (
 				6791CF7D2525945D00BFC414 /* TaskListViewController.swift */,
+				6791CF8E25259B6500BFC414 /* AddTaskViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6791CF9025259C8900BFC414 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6791CF792525945D00BFC414 /* AppDelegate.swift */,
+				6791CF7B2525945D00BFC414 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6791CF9125259CD200BFC414 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				6791CF822525946000BFC414 /* Assets.xcassets */,
+				6791CF842525946000BFC414 /* LaunchScreen.storyboard */,
+				6791CF872525946000BFC414 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		6791CF9225259D5200BFC414 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6791CF7F2525945D00BFC414 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6791CF7E2525945D00BFC414 /* TaskListViewController.swift in Sources */,
+				6791CF8F25259B6500BFC414 /* AddTaskViewController.swift in Sources */,
 				6791CF7A2525945D00BFC414 /* AppDelegate.swift in Sources */,
 				6791CF7C2525945D00BFC414 /* SceneDelegate.swift in Sources */,
 			);
@@ -293,7 +321,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GoodList/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GoodList/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +338,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GoodList/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GoodList/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
