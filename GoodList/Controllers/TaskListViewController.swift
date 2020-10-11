@@ -78,5 +78,4 @@ extension TaskListViewController: UITableViewDataSource {
     }
 }
 
-extension TaskListViewController: UITableViewDelegate {
-}
+extension TaskListViewController: UITableViewDelegate {}
